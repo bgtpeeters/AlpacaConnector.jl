@@ -1,5 +1,5 @@
 # Basic test that should work in any environment
-println("alpaca-connector tests running...")
+println("AlpacaConnector.jl tests running...")
 
 # Test that we can at least run this file
 result = 1 + 1 == 2

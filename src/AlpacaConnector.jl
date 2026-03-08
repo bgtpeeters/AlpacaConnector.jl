@@ -1,4 +1,4 @@
-module alpaca_connector
+module AlpacaConnector
 
 using HTTP
 using JSON
@@ -92,4 +92,4 @@ function get_historical_data(api_key::String, api_secret::String, ticker::String
     end
 end
 
-end # module
+end # module AlpacaConnector
