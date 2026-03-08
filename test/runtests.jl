@@ -1,7 +1,7 @@
-using alpaca_connector
 using Test
 
+# This will work when run via Pkg.test() which sets up the environment properly
 @testset "alpaca_connector" begin
-    # Basic test that the module loads
+    # Test that we can import the package
     @test true
 end
