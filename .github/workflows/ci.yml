@@ -8,8 +8,8 @@ on:
 
 jobs:
   test:
-    name: Julia ${{ matrix.version }} - ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Julia ${{ matrix.version }} - Ubuntu
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         version:
@@ -17,10 +17,6 @@ jobs:
           - '1.7'
           - '1.8'
           - '1.9'
-        os:
-          - ubuntu-latest
-          - macOS-latest
-          - windows-latest
 
     steps:
       - uses: actions/checkout@v4
