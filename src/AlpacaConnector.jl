@@ -178,12 +178,12 @@ function get_historical_data(api_key::String, api_secret::String, ticker::String
         
         # Convert to DataFrame
         df = DataFrame(
-            timestamp = [DateTime(bar["t"], dateformat"yyyy-mm-dd\THH:MM:SS\Z") for bar in all_bars],
-            open = [bar["o"] for bar in all_bars],
-            high = [bar["h"] for bar in all_bars],
-            low = [bar["l"] for bar in all_bars],
-            close = [bar["c"] for bar in all_bars],
-            volume = [bar["v"] for bar in all_bars]
+            timestamp = DateTime[DateTime(bar["t"], dateformat"yyyy-mm-dd\THH:MM:SS\Z") for bar in all_bars],
+            open = Float64[bar["o"] for bar in all_bars],
+            high = Float64[bar["h"] for bar in all_bars],
+            low = Float64[bar["l"] for bar in all_bars],
+            close = Float64[bar["c"] for bar in all_bars],
+            volume = Float64[bar["v"] for bar in all_bars]
         )
         
         # Sort by timestamp (oldest to newest)
