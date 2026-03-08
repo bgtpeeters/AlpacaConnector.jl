@@ -28,6 +28,9 @@ api_key = "your_api_key"
 api_secret = "your_api_secret"
 data = get_historical_data(api_key, api_secret, "AAPL", "1Day", "2023-01-01T00:00:00Z", 100)
 
+# Get split-adjusted data
+data_adjusted = get_historical_data(api_key, api_secret, "AAPL", "1Day", "2023-01-01T00:00:00Z", 100, adjustment="split")
+
 # Display the data
 println(data)
 ```
@@ -37,7 +40,7 @@ println(data)
 ### `get_historical_data`
 
 ```julia
-get_historical_data(api_key, api_secret, ticker, timeframe, start_time, limit)
+get_historical_data(api_key, api_secret, ticker, timeframe, start_time, limit, adjustment="raw")
 ```
 
 **Arguments:**
@@ -47,6 +50,11 @@ get_historical_data(api_key, api_secret, ticker, timeframe, start_time, limit)
 - `timeframe::String`: Candle timeframe (e.g., "1Day", "1Hour", "1Min")
 - `start_time::String`: Start time in ISO 8601 format
 - `limit::Int`: Maximum number of candles to retrieve
+- `adjustment::String`: Adjustment type for corporate actions (default: "raw")
+  - "raw": No adjustment (raw prices)
+  - "split": Adjust for stock splits only
+  - "dividend": Adjust for dividends only
+  - "all": Adjust for both splits and dividends
 
 **Returns:**
 - `DataFrame`: Historical data ordered from oldest to newest
